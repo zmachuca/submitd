@@ -10,5 +10,7 @@
   <%= @job.title %>
 </p>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
+<% if @job.user == current_user %>
+	<%= link_to 'Edit', edit_job_path(@job) %> |
+<% end %>
 <%= link_to 'Back', jobs_path %>
