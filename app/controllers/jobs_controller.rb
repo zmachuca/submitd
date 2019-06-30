@@ -7,7 +7,6 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
 
-
   def show
   end
 
@@ -20,6 +19,7 @@ class JobsController < ApplicationController
 
   def create
     @job = current_user.jobs.build(job_params)
+
     if @job.save
       redirect_to @job, notice: 'Job was successfully created.' 
     else
@@ -29,9 +29,9 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      fredirect_to @job, notice: 'Job was successfully updated.'
+      redirect_to @job, notice: 'Job was successfully updated.'
     else
-      ender :edit
+      render :edit
     end
   end
 

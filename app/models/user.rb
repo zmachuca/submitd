@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :jobs
+  has_many :candidates, through: :jobs
 end
